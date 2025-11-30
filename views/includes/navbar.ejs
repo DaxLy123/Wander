@@ -1,16 +1,80 @@
+<style>
+  .btn-search{
+    background-color: #fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+  .btn-search:hover{
+    background-color: #fe424d;
+    color: #fff;
+  }
+  .btn-search i{
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .search-inp{
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem ;
+    font-size: 0.8rem;
+  }
+     @media (max-width: 767.98px) {
+    #navbarNavAltMarkup {
+      background-color: #ffffff;  /* or #f8f9fa for light gray */
+      border-radius: 0 0 10px 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      padding: 0.5rem 1rem;
+    }
+    #navbarNavAltMarkup .nav-link{
+      color: #333;
+    }
+  }
+  
+  .authbtn{
+    margin-right: 1rem;
+    color: white;
+    background-color: #fe424d;
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: auto;
+  }
+  .authbtn:hover{
+   background-color: #fe424d;
+    color: white;
+    
+
+  }
+</style>
+
+
 <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/"><i class="fa-solid fa-compass"></i></a>
+    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-link"  href="/">Home</a>
-        <a class="nav-link" href="/listings">All Listings</a>
-        <a class="nav-link" href="/listings/new">Add New Listing</a>
+        
+        <a class="nav-link" href="/listings">Explore</a>
         
       </div>
+     <div class="navbar-nav ms-auto">
+      <form class="d-flex" role="search">
+      <input class="form-control me-2 search-inp" type="search" placeholder="Search Destinations" />
+      <button class="btn btn-search" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
+    </form>
+     </div>
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link btn authbtn" href="/listings/new">List New Place</a>
+        <% if(!currUser) {%>
+        <a class="btn authbtn"  href="/signup">Sign Up</a>
+        <a class="btn authbtn" href="/login">Login</a>
+        <% } %>
+        <% if(currUser) {%>
+          <a class="btn authbtn" href="/logout/">Logout</a>
+        <% } %>     
+        </div>
     </div>
   </div>
 </nav>
